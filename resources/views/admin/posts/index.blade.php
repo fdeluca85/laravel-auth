@@ -29,6 +29,12 @@
                             <td>{{$post->slug}}</td>
                             <td><a href="{{route("posts.show", $post->id)}}"><button type="button" class="btn btn-primary">Vai</button></a></td>
                             <td><a href="{{route("posts.edit", $post->id)}}"><button type="button" class="btn btn-warning">Modifica</button></a></td>
+                            <td><form action="{{route("posts.destroy", $post->id)}}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class="btn btn-danger">Elimina</button>
+                            </form>
+                            </td>
                             
                           </tr>
                           @endforeach

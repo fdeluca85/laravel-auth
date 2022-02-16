@@ -115,6 +115,8 @@ class PostController extends Controller
         $data = $request->all();
 
         if ($post->title != $data["title"]) {
+            $post->title = $data["title"];
+
             $slug = Str::of($post->title)->slug("-");
             $count = 1;
 
@@ -123,7 +125,6 @@ class PostController extends Controller
                 $count++;
             }
             $post->slug = $slug;
-            $post->title = $data["title"];
         }
 
         $post->content = $data["content"];
@@ -144,8 +145,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route("posts.index",);
     }
 }
