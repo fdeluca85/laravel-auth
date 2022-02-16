@@ -8,11 +8,13 @@
                 <div class="card-header">Posts List</div>
 
                 <div class="card-body">
+                    <div class="mb-3"><a href="{{route("posts.create")}}"><button type="button" class="btn btn-success">Crea post</button></a></div>
+                    
                     <table class="table table-striped">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Titolo</th>
+                            <th scope="col">Titolo  </th>
                             <th scope="col">Slug</th>
                             <th scope="col">Visualizza</th>
                             <th scope="col">Modifica</th>
